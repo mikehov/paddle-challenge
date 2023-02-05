@@ -6,13 +6,13 @@
 }
 
 :root {
-    --brown-color: #FEC08C;
+    --brown-color: #fec08c;
     --light-brown-color: #fce3cc;
     --dark-brown-color: #e5a978;
 
-    --blue-color: #87deff;
-    --light-blue-color: #C1EEFF;
-    --dark-blue-color: #315D6E;
+    --light-blue-color: #87deff;
+    --dark-blue-color: #259faf;
+    --blue-color: #226882;
 
     --white-color: #ffffff;
     --text-color-black: #666666;
@@ -67,14 +67,14 @@ p.text-black {
     color: var(--text-color-black);
 }
 
-button {
+/* button {
     color: var(--white-color);
     background-color: rgba(193, 238, 255, 0.2);
     border: 2px solid var(--white-color);
     border-radius: 5px;
     padding: 0.5rem 1rem; 
     font-size: 1rem;
-}
+} */
 
 .default-button {
     display: inline-block;
@@ -90,13 +90,12 @@ button {
     transform: translateY(-5px);
 }
 
-
 .button-blue {
-    background-color: rgba(193, 238, 255, 0.2);
+    background-color: var(--blue-color);
 }
 
 .button-lightbrown {
-    background-color: rgba(254, 192, 140, 0.2);
+    background-color: var(--brown-color);
 }
 
 
@@ -120,26 +119,38 @@ button {
     height: 100vh;
 }
 
-.overlay-landing {
+#landing h1 span {
+    font-style: italic;
+    font-weight: 500;
+}
+
+#landing .overlay-landing {
     width: 100vw;
     height: 100vh;
 
     z-index: 1;
     position: absolute;
-    background-color: rgba(254, 192, 140, 0.8);
+    background-image: linear-gradient(rgba(254, 192, 140, 0.8), rgba(37, 159, 175, 0.8));
 }
 
-.background-landing {
+.background-general {
     width: calc(100vw + 40px);
     height: calc(100vh + 40px);
 
-    background: url(../images/landing-image-paddling.png);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
     background-size: cover;
-    background-position: 75% center;
     position: absolute;
     object-fit: fill;
+}
 
-    z-index: -1;
+#landing .background-landing {
+    background: url(../images/landing-image-paddling.png);
+    background-position: 75% center;
+
     -webkit-animation: background-moving 30s ease-in-out infinite;
     animation: background-moving 30s ease-in-out infinite;
 }
@@ -150,8 +161,8 @@ button {
      transform:translate3d(-40px,0,0)
     }
     50% {
-     -webkit-transform:translate3d(0,-40px,0);
-     transform:translate3d(0,-40px,0)
+     -webkit-transform:translate3d(0px,-40px,0);
+     transform:translate3d(0px,-40px,0)
     }
     100% {
      -webkit-transform:translate3d(-40px,0,0);
@@ -159,22 +170,7 @@ button {
     }
    }
 
-   @keyframes background-moving {
-    0% {
-     -webkit-transform:translate3d(-40px,0,0);
-     transform:translate3d(-40px,0,0)
-    }
-    50% {
-     -webkit-transform:translate3d(0,-40px,0);
-     transform:translate3d(0,-40px,0)
-    }
-    100% {
-     -webkit-transform:translate3d(-40px,0,0);
-     transform:translate3d(-40px,0,0)
-    }
-   }
-
-.content-landing {
+#landing .content-landing {
     position: absolute;
     top: 50%;
     left: 10%;
@@ -183,11 +179,11 @@ button {
     z-index: 2;
 }
 
-.content-landing a {
+#landing .content-landing a {
     margin-top: 2rem;
 }
 
-#landing span {
+#landing span.material-symbols-outlined {
     font-size: 2rem;
 
     position: absolute;
@@ -206,7 +202,8 @@ button {
 
 #landing .link-paddle {
     color: var(--white-color);
-    border-bottom: 2px solid var(--white-color);
+    border-bottom: 3px solid var(--brown-color);
+    border-radius: 1px;
 
     position: absolute;
     bottom: 1.5rem;
@@ -238,7 +235,7 @@ button {
     width: 100%;
     height: 10rem;
 
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--brown-color) 95%, var(--brown-color) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--dark-blue-color) 95%, var(--dark-blue-color) 100%);
     position: absolute;
     bottom: 0;
     z-index: 1;
@@ -256,7 +253,12 @@ button {
     text-align: center;
     position: relative;
 
-    background: linear-gradient(to top, var(--light-brown-color) 25%, var(--brown-color) 25%, var(--brown-color) 100%);
+    background: linear-gradient(to top, rgba(252, 227, 204, 0.9) 25%, rgba(37, 159, 175, 1) 25%, rgba(37, 159, 175, 1) 100%);
+}
+
+#surfing .background-surfing {
+    background: url(../images/sand.jpg);
+    background-position: top center;
 }
 
 #surfing .content-surfing {
@@ -271,7 +273,7 @@ button {
     margin-top: 2rem;
     margin-bottom: 2rem;
     
-    background: linear-gradient(to top, var(--dark-brown-color) 35%, var(--brown-color) 35%, var(--brown-color) 100%);
+    background: linear-gradient(to top, var(--blue-color) 35%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 100%);
     border-radius: 2rem;
 }
 
@@ -308,15 +310,21 @@ button {
     width: 100vw;
     /* height: 100vh; */
     text-align: left;
+    padding-bottom: 2rem;
 
     position: relative;
-    background-color: var(--light-gray-color);
+    background-color: rgba(252, 227, 204, 0.9);
+}
+
+#benefits .background-benefits {
+    height: 100%;
+    background: url(../images/sand.jpg);
+    background-position: 75% center;
 }
 
 #benefits .content-benefits {
     margin: auto;
-    background-color:#fce3cc;
-    padding: 0rem 3rem;
+    padding: 0rem 1rem;
 }
 
 #benefits img {
@@ -331,7 +339,7 @@ button {
     margin: auto;
     border: 10px solid var(--light-gray-color);
     border-bottom: 0px;
-    max-width: calc(60rem + 6rem);
+    max-width: calc(60rem + 2rem);
 }
 
 #benefits .border-benefits:first-child {
@@ -354,7 +362,7 @@ button {
     margin-top: 2rem;
     margin-bottom: 2rem;
     
-    background: linear-gradient(to top, var(--light-blue-color) 35%, var(--light-brown-color) 35%, var(--light-brown-color) 100%);
+    background: linear-gradient(to top, var(--light-blue-color) 35%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 100%);
     border-radius: 2rem;
 }
 
@@ -393,16 +401,28 @@ button {
     text-align: left;
 
     position: relative;
-    background-color: var(--light-blue-color);
+    background-color: rgba(135, 222, 255, 0.95);
+}
+
+#end .background-end {
+    background: url(../images/sea.jpg);
+    background-position: top center;
 }
 
 #end img {
     width: 40%;
     height: 50%;
     object-fit: cover;
-
     position: absolute;
-    bottom: 0;
+    /* left: 2rem;
+    bottom: 2rem; */
+}
+
+#end p {
+    padding: 2rem;
+    background-color: var(--white-color);
+    border: 10px solid var(--light-gray-color);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
 }
 
 
@@ -412,7 +432,7 @@ button {
 
 footer {
     width: 100vw;
-    background-color: var(--dark-blue-color);
+    background-color: var(--blue-color);
     color: var(--white-color);
     padding: 1rem;
     display: flex;
@@ -449,7 +469,6 @@ footer p {
 
     #benefits .content-benefits {
         margin: auto;
-        background-color:#fce3cc ;
         padding: 0rem 3rem;
     }
 
