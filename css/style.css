@@ -67,14 +67,11 @@ p.text-black {
     color: var(--text-color-black);
 }
 
-/* button {
-    color: var(--white-color);
-    background-color: rgba(193, 238, 255, 0.2);
-    border: 2px solid var(--white-color);
-    border-radius: 5px;
-    padding: 0.5rem 1rem; 
-    font-size: 1rem;
-} */
+
+
+/* --- BUTTONS --- */
+
+
 
 .default-button {
     display: inline-block;
@@ -117,11 +114,7 @@ p.text-black {
 #landing {
     width: 100vw;
     height: 100vh;
-}
-
-#landing h1 span {
-    font-style: italic;
-    font-weight: 500;
+    position: relative;
 }
 
 #landing .overlay-landing {
@@ -133,23 +126,33 @@ p.text-black {
     background-image: linear-gradient(rgba(254, 192, 140, 0.8), rgba(37, 159, 175, 0.8));
 }
 
+#landing h1 span {
+    font-style: italic;
+    font-weight: 500;
+}
+
 .background-general {
     width: calc(100vw + 40px);
     height: calc(100vh + 40px);
+
+    position: relative;
 
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
 
-    background-size: cover;
     position: absolute;
-    object-fit: fill;
 }
 
 #landing .background-landing {
     background: url(../images/landing-image-paddling.png);
     background-position: 75% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill;
+
+    z-index: 0;
 
     -webkit-animation: background-moving 30s ease-in-out infinite;
     animation: background-moving 30s ease-in-out infinite;
@@ -217,7 +220,9 @@ p.text-black {
 
 #landing .link-paddle:hover {
     transform: translateY(-3px);
+    border-bottom: 3px solid var(--brown-color);
 }
+
 
 @keyframes arrow-animation {
     0%{transform: translate(0, 0px);}
@@ -250,15 +255,10 @@ p.text-black {
 #surfing {
     width: 100vw;
     /* height: 100vh; */
-    text-align: center;
     position: relative;
 
+    text-align: center;
     background: linear-gradient(to top, rgba(252, 227, 204, 0.9) 25%, rgba(37, 159, 175, 1) 25%, rgba(37, 159, 175, 1) 100%);
-}
-
-#surfing .background-surfing {
-    background: url(../images/sand.jpg);
-    background-position: top center;
 }
 
 #surfing .content-surfing {
@@ -309,6 +309,7 @@ p.text-black {
 #benefits {
     width: 100vw;
     /* height: 100vh; */
+
     text-align: left;
     padding-bottom: 2rem;
 
@@ -317,6 +318,14 @@ p.text-black {
 }
 
 #benefits .background-benefits {
+    background: url(../images/landing-image-paddling.png);
+    background-position: 75% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill;
+
+    z-index: -1;
+
     height: 100%;
     background: url(../images/sand.jpg);
     background-position: 75% center;
@@ -327,13 +336,42 @@ p.text-black {
     padding: 0rem 1rem;
 }
 
-#benefits img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    /* border-top: 7px solid var(--light-gray-color);
-    border-bottom: 7px solid var(--light-gray-color); */
+#benefits .container-image {
+    width: calc(100vw + 40px);
+    height: calc(400px + 40px);
+    background-color: red;
 }
+
+#benefits .container-image .moving-image {
+    width: calc(100vw + 40px);
+    height: calc(400px + 40px);
+
+    background: url(../images/surfing-1.jpg);
+    background-position: 75% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill;
+
+    z-index: 0;
+
+    -webkit-animation: background-moving-horizontal 30s ease-in-out infinite;
+    animation: background-moving-horizontal 30s ease-in-out infinite;
+}
+
+@-webkit-keyframes background-moving-horizontal {
+    0% {
+     -webkit-transform:translate3d(-40px,0,0);
+     transform:translate3d(-40px,0,0)
+    }
+    50% {
+     -webkit-transform:translate3d(0px,0,0);
+     transform:translate3d(0px,0,0)
+    }
+    100% {
+     -webkit-transform:translate3d(-40px,0,0);
+     transform:translate3d(-40px,0,0)
+    }
+   }
 
 #benefits .border-benefits {
     margin: auto;
@@ -362,7 +400,7 @@ p.text-black {
     margin-top: 2rem;
     margin-bottom: 2rem;
     
-    background: linear-gradient(to top, var(--light-blue-color) 35%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.5) 35%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 100%);
     border-radius: 2rem;
 }
 
@@ -375,14 +413,11 @@ p.text-black {
     color: var(--header-color-black);
 }
 
-#benefits p {
-}
-
 #benefits .content-benefits span.blue-line {
     display: inline-block;
     width: 50px;
     height: 3px;
-    color: #315D6E;
+    color: var(--blue-color);
     background-color: var(--light-blue-color);
     border-radius: 2px;
     content: '';
@@ -398,31 +433,99 @@ p.text-black {
 #end {
     width: 100vw;
     height: 100vh;
-    text-align: left;
 
     position: relative;
-    background-color: rgba(135, 222, 255, 0.95);
+}
+
+#end .overlay-end {
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(34, 104, 130, 0.8);
 }
 
 #end .background-end {
+    background-position: 75% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill;
+
+    z-index: -1;
+
     background: url(../images/sea.jpg);
     background-position: top center;
 }
 
+#end .gradient-end {
+    width: 100vw;
+    height: 10rem;
+
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--dark-blue-color) 95%, var(--dark-blue-color) 100%);
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+}
+
 #end img {
-    width: 40%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     position: absolute;
-    /* left: 2rem;
-    bottom: 2rem; */
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+
+    object-position: right;
+}
+
+#end h1 {
+    color: var(--text-color);
+    text-align: center;
+    display: inline-block;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.9) 35%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 2rem;
+    z-index: 1;
 }
 
 #end p {
     padding: 2rem;
     background-color: var(--white-color);
     border: 10px solid var(--light-gray-color);
-    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+    text-align: center;
+}
+
+#end p a {
+    color: var(--brown-color);
+    text-decoration: underline;
+    transition: all ease 0.3s;
+}
+
+#end p a:hover {
+    color: var(--dark-brown-color);
+}
+
+#end .content-end {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+#end .center-end {
+    margin-top: 2rem;
+    text-align: center;
 }
 
 
@@ -432,16 +535,30 @@ p.text-black {
 
 footer {
     width: 100vw;
-    background-color: var(--blue-color);
+    position: relative;
+
+    background-color: var(--dark-blue-color);
     color: var(--white-color);
-    padding: 1rem;
     display: flex;
     flex-direction: row;
+    justify-content:space-around;
 }
 
 footer p {
   padding: 0rem 2rem;  
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+  z-index: 1;
 }
+
+/* footer .overlay-footer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(254, 192, 140, 0.95);
+} */
 
 /* TABLET */
 @media only screen and (min-width: 48rem) {
