@@ -30,6 +30,8 @@ body {
 
 html {
     scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 
@@ -43,7 +45,7 @@ h1 {
     font-weight: 300;
     line-height: 1.2;
 
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     color: var(--white-color);
 }
 
@@ -51,12 +53,14 @@ h2 {
     font-family: 'IBM Plex Serif', serif;
 }
 
-p, a, button {
+p,
+a,
+button {
     font-family: Helvetica, sans-serif;
     text-decoration: none;
     max-width: 60rem;
     line-height: 1.7;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 p.text-white {
@@ -78,7 +82,7 @@ p.text-black {
     color: var(--white-color);
     border: 2px solid var(--white-color);
     border-radius: 5px;
-    padding: 0.5rem 1rem; 
+    padding: 0.5rem 1rem;
     font-size: 1rem;
     transition: all ease 0.2s;
 }
@@ -160,18 +164,20 @@ p.text-black {
 
 @-webkit-keyframes background-moving {
     0% {
-     -webkit-transform:translate3d(-40px,0,0);
-     transform:translate3d(-40px,0,0)
+        -webkit-transform: translate3d(-40px, 0, 0);
+        transform: translate3d(-40px, 0, 0)
     }
+
     50% {
-     -webkit-transform:translate3d(0px,-40px,0);
-     transform:translate3d(0px,-40px,0)
+        -webkit-transform: translate3d(0px, -40px, 0);
+        transform: translate3d(0px, -40px, 0)
     }
+
     100% {
-     -webkit-transform:translate3d(-40px,0,0);
-     transform:translate3d(-40px,0,0)
+        -webkit-transform: translate3d(-40px, 0, 0);
+        transform: translate3d(-40px, 0, 0)
     }
-   }
+}
 
 #landing .content-landing {
     position: absolute;
@@ -204,9 +210,10 @@ p.text-black {
 }
 
 #landing .link-paddle {
+    width: 100%;
     color: var(--white-color);
-    border-bottom: 3px solid var(--brown-color);
-    border-radius: 1px;
+    /* border-bottom: 3px solid var(--brown-color);
+    border-radius: 1px; */
 
     position: absolute;
     bottom: 1.5rem;
@@ -220,27 +227,52 @@ p.text-black {
 
 #landing .link-paddle:hover {
     transform: translateY(-3px);
-    border-bottom: 3px solid var(--brown-color);
 }
 
 
 @keyframes arrow-animation {
-    0%{transform: translate(0, 0px);}
-	4%{transform: translate(0,-5px);}
-	8%{transform: translate(0,5px);}
-	12%{transform: translate(0,-3px);}
-	16%{transform: translate(0,3px);}
-	20%{transform: translate(0,-1px);}
-	22%{transform: translate(0,1px);}
-	24%{transform: translate(0,0);}
-    100%{transform: translate(0,0);}
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    4% {
+        transform: translate(0, -5px);
+    }
+
+    8% {
+        transform: translate(0, 5px);
+    }
+
+    12% {
+        transform: translate(0, -3px);
+    }
+
+    16% {
+        transform: translate(0, 3px);
+    }
+
+    20% {
+        transform: translate(0, -1px);
+    }
+
+    22% {
+        transform: translate(0, 1px);
+    }
+
+    24% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
 }
 
 .gradient-landing {
     width: 100%;
     height: 10rem;
 
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--dark-blue-color) 95%, var(--dark-blue-color) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--dark-blue-color) 95%, var(--dark-blue-color) 100%);
     position: absolute;
     bottom: 0;
     z-index: 1;
@@ -263,6 +295,7 @@ p.text-black {
 
 #surfing .content-surfing {
     margin: auto;
+    padding: 1.5rem;
 }
 
 #surfing h1 {
@@ -272,15 +305,15 @@ p.text-black {
     padding: 1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    
+
     background: linear-gradient(to top, var(--blue-color) 35%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 100%);
     border-radius: 2rem;
 }
 
 #surfing p {
-    padding: 2rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1rem;
 }
 
 #surfing .surfing-photos {
@@ -295,6 +328,7 @@ p.text-black {
 #surfing .surfing-photos img {
     width: 100%;
     height: auto;
+    margin: 0.5rem;
     border: 7px solid #fff;
     border-radius: 5px;
     object-fit: cover;
@@ -338,16 +372,16 @@ p.text-black {
 
 #benefits .container-image {
     width: calc(100vw + 40px);
-    height: calc(400px + 40px);
-    background-color: red;
+    height: calc(200px + 40px);
+    background-color: var(--blue-color);
 }
 
 #benefits .container-image .moving-image {
     width: calc(100vw + 40px);
-    height: calc(400px + 40px);
+    height: calc(200px + 40px);
 
     background: url(../images/surfing-1.jpg);
-    background-position: 75% center;
+    background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: fill;
@@ -360,18 +394,20 @@ p.text-black {
 
 @-webkit-keyframes background-moving-horizontal {
     0% {
-     -webkit-transform:translate3d(-40px,0,0);
-     transform:translate3d(-40px,0,0)
+        -webkit-transform: translate3d(-40px, 0, 0);
+        transform: translate3d(-40px, 0, 0)
     }
+
     50% {
-     -webkit-transform:translate3d(0px,0,0);
-     transform:translate3d(0px,0,0)
+        -webkit-transform: translate3d(0px, 0, 0);
+        transform: translate3d(0px, 0, 0)
     }
+
     100% {
-     -webkit-transform:translate3d(-40px,0,0);
-     transform:translate3d(-40px,0,0)
+        -webkit-transform: translate3d(-40px, 0, 0);
+        transform: translate3d(-40px, 0, 0)
     }
-   }
+}
 
 #benefits .border-benefits {
     margin: auto;
@@ -399,14 +435,14 @@ p.text-black {
     padding: 1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    
+
     background: linear-gradient(to top, rgba(255, 255, 255, 0.5) 35%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 100%);
     border-radius: 2rem;
 }
 
 #benefits .content-benefits .text-benefits {
     background-color: var(--white-color);
-    padding: 3rem;
+    padding: 2rem;
 }
 
 #benefits h2 {
@@ -432,9 +468,9 @@ p.text-black {
 
 #end {
     width: 100vw;
-    height: 100vh;
-
+    min-height: 100vh;
     position: relative;
+    margin-top: -32px;
 }
 
 #end .overlay-end {
@@ -447,37 +483,26 @@ p.text-black {
 }
 
 #end .background-end {
+    background: url(../images/surfing-2.png);
     background-position: 75% center;
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: fill;
 
-    z-index: -1;
+    z-index: -2;
 
-    background: url(../images/sea.jpg);
-    background-position: top center;
+    -webkit-animation: background-moving 30s ease-in-out infinite;
+    animation: background-moving 30s ease-in-out infinite;
 }
 
 #end .gradient-end {
     width: 100vw;
-    height: 10rem;
+    height: 5rem;
+    z-index: 1;
 
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--dark-blue-color) 95%, var(--dark-blue-color) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--dark-blue-color) 95%, var(--dark-blue-color) 100%);
     position: absolute;
     bottom: 0;
-    z-index: 3;
-}
-
-#end img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 0;
-
-    object-position: right;
 }
 
 #end h1 {
@@ -486,20 +511,18 @@ p.text-black {
     display: inline-block;
 
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
 
     padding: 1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    
+
     background: linear-gradient(to top, rgba(255, 255, 255, 0.9) 35%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 100%);
     border-radius: 2rem;
     z-index: 1;
 }
 
 #end p {
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: var(--white-color);
     border: 10px solid var(--light-gray-color);
     text-align: center;
@@ -517,15 +540,20 @@ p.text-black {
 
 #end .content-end {
     position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
+    padding: 1rem;
+    max-width: 60rem;
     z-index: 1;
+
+    margin: auto auto;
+    left: 0;
+    right: 0;
 }
 
 #end .center-end {
+    padding: 1rem;
     margin-top: 2rem;
     text-align: center;
+    z-index: 2;
 }
 
 
@@ -541,27 +569,31 @@ footer {
     color: var(--white-color);
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content: space-around;
 }
 
 footer p {
-  padding: 0rem 2rem;  
-  font-size: 14px;
-  font-style: italic;
-  text-align: center;
-  padding: 1rem;
-  z-index: 1;
+    padding: 0rem 2rem;
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem;
+    z-index: 1;
 }
 
-/* footer .overlay-footer {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: rgba(254, 192, 140, 0.95);
-} */
+
+
+
+
 
 /* TABLET */
 @media only screen and (min-width: 48rem) {
+
+    #landing .link-paddle {
+        border-bottom: 3px solid var(--brown-color);
+        border-radius: 1px;
+        width: initial;
+    }
 
     #surfing {
         height: 100vh;
@@ -572,12 +604,12 @@ footer p {
         justify-content: center;
         flex-wrap: wrap;
         width: 100%;
-    
+
         position: absolute;
         bottom: 25%;
         transform: translateY(50%);
     }
-    
+
     #surfing .surfing-photos img {
         width: 200px;
         height: 200px;
@@ -589,6 +621,20 @@ footer p {
         padding: 0rem 3rem;
     }
 
+    #benefits .container-image {
+        height: calc(400px + 40px);
+    }
+
+    #benefits .container-image .moving-image {
+        height: calc(400px + 40px);
+        background-position: center center;
+    }
+
+    #end .content-end {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
 }
 
 /* DESKTOP */
@@ -597,7 +643,6 @@ footer p {
     h1 {
         font-size: 4rem;
     }
-
 
     #landing {
         background-position: top center;
@@ -611,10 +656,8 @@ footer p {
         bottom: 2rem;
     }
 
-    #surfing .surfing-photos {
-        
-    }
-    
+    #surfing .surfing-photos {}
+
     #surfing .surfing-photos img {
         width: 275px;
         height: 275px;
