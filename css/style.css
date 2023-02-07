@@ -71,6 +71,10 @@ p.text-black {
     color: var(--text-color-black);
 }
 
+span.quote {
+    color: var(--gray-color);
+}
+
 
 
 /* --- BUTTONS --- */
